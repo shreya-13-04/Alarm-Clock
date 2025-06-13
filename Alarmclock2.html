@@ -1,0 +1,53 @@
+
+<html>
+    <head>
+        <title>ALARM CLOCK</title>
+    
+    <style>
+         .clock{
+                width: 400px;
+                margin: 100 auto;
+                padding: 20px;
+                border: 5px solid black;
+                border-radius: 10px;
+                background-color:#88c6b3 ;
+            }
+        body{
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #alarmTime{
+            margin-bottom: 20px;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="clock">
+                  <h1>ALARM CLOCK</h1>
+
+
+        <label for="alarmTime">Set Alarm time : </label>
+        <input type="time" id="alarmTime" style="background-color: bisque;">
+        <button onclick="setAlarm()" style="background-color: bisque;">SET ALARM</button>
+    </div>
+  
+        <script>
+            function setAlarm(){
+                var alarmTime=document.getElementById('alarmTime').value;
+                var currentTime=new Date();
+                var hours=currentTime.getHours();
+                var minutes=currentTime.getMinutes();
+                var alarmHours=parseInt(alarmTime.substring(0,2));
+                var alarmMinutes=parseInt(alarmTime.substring(3,5));
+
+                if (hours === alarmHours && minutes === alarmMinutes){
+                    alert('TIME TO WAKE UP !');
+                }else{
+                    setTimeout(setAlarm, 1000)
+                }
+
+            }
+        </script>
+    </body>
+
+</html>
